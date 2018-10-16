@@ -33,10 +33,6 @@
 			.attr({
 				'id': id,
 				'tabindex': -1, // add current element to tab oder
-				'role': 'progressbar', // assign  progressbar role
-                'aria-valuenow': 0, // set current value to 0
-                'aria-valuemin': 0, // set minimum (start) value to 0 (required by screen readers)
-                'aria-valuemax': this.options.max, // set maximum (end) value
 				'aria-describedby': id + '_instructions' // add aria-describedby attribute 
 			})
 			.addClass('ik_progressbar')
@@ -47,7 +43,7 @@
 			
 		this.notification = $('<div/>') // add div element to be used to notify about the status of download
 			.attr({
-				//'aria-role': 'region', // make it a live region
+				'aria-role': 'region', // make it a live region
 				'aria-live': 'assertive', // set notofocation priority to high
 				'aria-atomic': 'additions' // notify only about newly added text
 			})
@@ -101,8 +97,7 @@
 		
 		var value;
 		
-		//value = Number( this.element.data('value') ); //inaccessible
-		value = Number( this.element.attr('aria-valuenow') ); // accessible
+		value = Number( this.element.data('value') );
 				
 		return parseInt( value );
 		
@@ -143,12 +138,10 @@
 		}
 		
 		this.element
-			/*.data({   //inaccessible
+			.data({
 				'value': parseInt(val) 
-			})*/
-		 .attr({ // accessible
-            'aria-valuenow': val
-        });
+			});
+		
 		this.updateDisplay();
 		
 	};
