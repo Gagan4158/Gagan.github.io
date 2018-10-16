@@ -73,10 +73,10 @@
 				})
 				.addClass('ik_knob')
 				.on('mousedown', {'plugin': plugin}, plugin.onMouseDown)
-				.on('keydown', {'plugin': plugin}, plugin.onKeyDown)
 				.on('mousemove', {'plugin': plugin}, plugin.onMouseMove)
 				.on('mouseup', {'plugin': plugin}, plugin.onMouseUp)
-				.on('mouseleave', function(){ setTimeout(plugin.onMouseUp, 100, { 'data': {'plugin': plugin} }) });
+				.on('mouseleave', function(){ setTimeout(plugin.onMouseUp, 100, { 'data': {'plugin': plugin} }) })
+				.on('keydown', {'plugin': plugin}, plugin.onKeyDown);
 				
 			$('<div/>') // add slider track
 				.addClass('ik_track')
@@ -84,17 +84,17 @@
 				.prependTo(this.element);
 			
 			$('<div/>') 
-			.attr({
-			'id': id + '_instructions'
-			})
-			.text(this.options.instructions)
-			.addClass('ik_readersonly')
-			.appendTo(this.element);
-					this.setValue(plugin.options.minValue); 
-				
-				}
+    .attr({
+    'id': id + '_instructions'
+    })
+    .text(this.options.instructions)
+    .addClass('ik_readersonly')
+    .appendTo(this.element);
+			this.setValue(plugin.options.minValue); 
+		
+		}
 					
-			};
+	};
 	
 	/** 
 	 * Sets current value. 
