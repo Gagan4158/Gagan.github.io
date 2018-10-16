@@ -38,7 +38,8 @@
 			 'aria-multiselectable': !this.options.autoCollapse
 		}).addClass('ik_accordion'); 
 			
-		this.headers = $elem.children('dt').attr({'role': 'heading'}).each(function(i, el) {
+		this.headers = $elem.children('dt')
+		.attr({'role': 'heading'}).each(function(i, el) {
 			var $me, $btn;
 			
 			$me = $(el);
