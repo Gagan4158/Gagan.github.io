@@ -48,7 +48,7 @@
 					'id': id + '_panel' + i,  // add unique id for a panel
 					'role': 'tabpanel', //add tab panel role 
                     'aria-hidden': true, // initially hide from the screen readers
-                    'tabindex': 0 				// add to tab order 	
+                    'tabindex': 0 // add to tab order 	
 				})
 				.addClass('ik_tabpanel')
 				.hide();
